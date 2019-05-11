@@ -3,12 +3,6 @@
 
 Allow to make a responsive UI with Flutter easily, make for Marvin Quevedo, for FlutterEs Community
 
-### Add dependency
-
-```yaml
-dependencies:
-  responsive: 0.0.5  #latest version
-```
 
 ## Super simple to use
 

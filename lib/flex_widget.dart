@@ -10,7 +10,7 @@ class FlexWidget extends StatelessWidget {
   final int sm;
   //Columns counts for more or equals to 992
   final int md;
-  //Columns counts for more or equals to 768
+  //Columns counts for more or equals to 1170
   final int lg;
 
   FlexWidget(
