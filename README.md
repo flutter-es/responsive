@@ -5,13 +5,13 @@
 [![Pub](https://img.shields.io/pub/v/responsive.svg?style=flat-square)](https://pub.dartlang.org/packages/responsive)
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/flutter-es/responsive)
 
-Allow to make responsive UI with Flutter easily, make for Marvin Quevedo, for FlutterEs Community
+Allow to make responsive a UI with Flutter easily, make for Marvin Quevedo, for FlutterEs Community
 
 ### Add dependency
 
 ```yaml
 dependencies:
-  responsive: 0.0.2  #latest version
+  responsive: 0.0.3  #latest version
 ```
 
 ## Super simple to use
