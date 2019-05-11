@@ -11,7 +11,7 @@ Este paquete ha sido creado por la comunidad de Flutter en Español, si deseas s
 
 [En Facebook: ](https://www.facebook.com/groups/flutter.dart.spanish/)
 
-[En slack: ](https://bit.ly/FlutterDevsEnEspanol.)
+[En slack: ](https://bit.ly/FlutterDevsEnEspanol)
 
 [En Twitter: ](https://twitter.com/esflutter)
 
