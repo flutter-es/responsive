@@ -10,9 +10,13 @@ Allow to make responsive a UI with Flutter easily, make for [Marvin Quevedo](htt
 Este paquete ha sido creado por la comunidad de Flutter en Español, si deseas ser parte de nosotros, puedes visitar cualquiera de estos links:
 
 [En Facebook: ](https://m.facebook.com/groups/flutter.dart.spanish/)
+
 [En slack: ](https://bit.ly/FlutterDevsEnEspanol.)
+
 [En Twitter: ](https://twitter.com/esflutter)
+
 [Doc traducida: ](flutter-es.io)
+
 [Telegram](https://t.me/flutter_dart_spanish)
 
 ### Add dependency
