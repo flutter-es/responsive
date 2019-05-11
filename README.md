@@ -5,11 +5,11 @@
 [![Pub](https://img.shields.io/pub/v/responsive.svg?style=flat-square)](https://pub.dartlang.org/packages/responsive)
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/flutter-es/responsive)
 
-Allow to make responsive a UI with Flutter easily, make for [Marvin Quevedo](https://www.gcoding.academy/collections), for FlutterEs Community.
+Allow to make responsive a UI with Flutter easily, make for [Marvin Quevedo](https://www.gcoding.academy/collections) of FlutterEs Community.
 
 Este paquete ha sido creado por la comunidad de Flutter en Español, si deseas ser parte de nosotros, puedes visitar cualquiera de estos links:
 
-[En Facebook: ](https://m.facebook.com/groups/flutter.dart.spanish/)
+[En Facebook: ](https://www.facebook.com/groups/flutter.dart.spanish/)
 
 [En slack: ](https://bit.ly/FlutterDevsEnEspanol.)
 
