@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Responsive Example',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
@@ -18,11 +18,12 @@ class MyApp extends StatelessWidget {
           body: ListView(
             children: <Widget>[
               ResponsiveRow(
+                columnsCount: 12,
                 alignment: WrapAlignment.center,
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: <Widget>[
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.amber,
                     ),
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
                     lg: 1,
                   ),
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.red,
                     ),
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
                     lg: 1,
                   ),
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.indigo,
                     ),
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
                     lg: 1,
                   ),
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.lime,
                     ),
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
                     lg: 1,
                   ),
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.teal,
                     ),
@@ -72,7 +73,7 @@ class MyApp extends StatelessWidget {
                     lg: 1,
                   ),
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.green,
                     ),
@@ -82,7 +83,7 @@ class MyApp extends StatelessWidget {
                     lg: 1,
                   ),
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.deepOrange,
                     ),
@@ -92,7 +93,7 @@ class MyApp extends StatelessWidget {
                     lg: 1,
                   ),
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.amber,
                     ),
@@ -102,7 +103,7 @@ class MyApp extends StatelessWidget {
                     lg: 1,
                   ),
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.grey,
                     ),
@@ -112,7 +113,7 @@ class MyApp extends StatelessWidget {
                     lg: 1,
                   ),
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.black,
                     ),
@@ -122,7 +123,7 @@ class MyApp extends StatelessWidget {
                     lg: 1,
                   ),
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.brown,
                     ),
@@ -132,7 +133,7 @@ class MyApp extends StatelessWidget {
                     lg: 1,
                   ),
                   FlexWidget(
-                    Container(
+                    child: Container(
                       height: 100,
                       color: Colors.cyan,
                     ),
