@@ -11,7 +11,7 @@ Allow to make responsive a UI with Flutter easily, make for Marvin Quevedo, for 
 
 ```yaml
 dependencies:
-  responsive: 0.0.3  #latest version
+  responsive: 0.0.5  #latest version
 ```
 
 ## Super simple to use

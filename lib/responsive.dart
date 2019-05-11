@@ -2,7 +2,6 @@ library responsive;
 
 import 'package:flutter/widgets.dart';
 
-import 'flex_widget.dart';
 
 class ResponsiveRow extends StatelessWidget {
   final int columnsCount;
