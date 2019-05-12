@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
             children: <Widget>[
               ResponsiveRow(
                 columnsCount: 12,
-                alignment: WrapAlignment.center,
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: <Widget>[
                   FlexWidget(
@@ -27,10 +26,16 @@ class MyApp extends StatelessWidget {
                       height: 100,
                       color: Colors.amber,
                     ),
-                    xs: 6,
+                    xs: 4,
+                    xsOffset: 2,
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    xsLandOffset: 0,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                   FlexWidget(
                     child: Container(
@@ -41,6 +46,10 @@ class MyApp extends StatelessWidget {
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                   FlexWidget(
                     child: Container(
@@ -51,6 +60,10 @@ class MyApp extends StatelessWidget {
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                   FlexWidget(
                     child: Container(
@@ -61,6 +74,10 @@ class MyApp extends StatelessWidget {
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                   FlexWidget(
                     child: Container(
@@ -71,6 +88,10 @@ class MyApp extends StatelessWidget {
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                   FlexWidget(
                     child: Container(
@@ -81,6 +102,10 @@ class MyApp extends StatelessWidget {
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                   FlexWidget(
                     child: Container(
@@ -91,6 +116,10 @@ class MyApp extends StatelessWidget {
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                   FlexWidget(
                     child: Container(
@@ -101,6 +130,10 @@ class MyApp extends StatelessWidget {
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                   FlexWidget(
                     child: Container(
@@ -111,6 +144,10 @@ class MyApp extends StatelessWidget {
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                   FlexWidget(
                     child: Container(
@@ -121,6 +158,10 @@ class MyApp extends StatelessWidget {
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                   FlexWidget(
                     child: Container(
@@ -131,6 +172,10 @@ class MyApp extends StatelessWidget {
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                   FlexWidget(
                     child: Container(
@@ -141,6 +186,10 @@ class MyApp extends StatelessWidget {
                     sm: 3,
                     md: 2,
                     lg: 1,
+                    xsLand: 4,
+                    smLand: 2,
+                    mdLand: 1,
+                    lgLand: 1,
                   ),
                 ],
               )

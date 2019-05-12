@@ -1,4 +1,10 @@
-## [0.0.8] - Comments corrections
+
+## [0.1.0] - Very Changes
+    - add diferents configurations for landscape and portrait
+    - add Offset configurations.
+    - add Offsets for landscape and portrait too.
+
+## [0.0.9] - Comments corrections
     Little  corrections
 
 
