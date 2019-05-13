@@ -23,7 +23,7 @@ Este paquete ha sido creado por la comunidad de Flutter en Español, si deseas s
 
 ```yaml
 dependencies:
-  responsive: 0.1.0
+  responsive: 0.1.1
 ```
 
 ## Super simple to use
