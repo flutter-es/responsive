@@ -128,16 +128,15 @@ class FlexWidget extends StatelessWidget {
 
     //use the OrientationBuilder Widget
     //for change the size width, depends of the orientation
-    print(orientation);
+
     final offset = _calcOffset(size, orientation, columnsCount);
 
     final child = SizedBox(
       width: _calcWidth(size, orientation, columnsCount),
       child: this.child,
     );
-    print(offset);
+
     if (offset > 0.0) {
-      print(offset);
       return Container(
           margin: EdgeInsets.only(left: offset),
           child: SizedBox(
@@ -153,37 +152,27 @@ class FlexWidget extends StatelessWidget {
   double _calcWidth(Size size, Orientation orientation, columnsCount) {
     final width = size.width;
     if (orientation == Orientation.portrait) {
-      //print("width = $width");
       final colWidth = width / columnsCount;
       if (colWidth > 1170) {
-        // print("lg");
         return colWidth * lg;
       } else if (width >= 992) {
-        //print("md");
         return colWidth * md;
       } else if (width >= 768) {
-        //print("sm");
         return colWidth * sm;
       } else {
-        //print("xs");
         return colWidth * xs;
       }
     } else {
       //Landscape configuration
 
-      // print("Height = $width");
       final colWidth = width / columnsCount;
       if (colWidth > 1170) {
-        // print("lg");
         return colWidth * lgLand;
       } else if (width >= 992) {
-        //print("md");
         return colWidth * mdLand;
       } else if (width >= 768) {
-        //print("sm");
         return colWidth * smLand;
       } else {
-        //print("xs");
         return colWidth * xsLand;
       }
     }
@@ -208,16 +197,12 @@ class FlexWidget extends StatelessWidget {
       final width = size.height;
       final colWidth = width / columnsCount;
       if (colWidth > 1170) {
-        // print("lg");
         return colWidth * lgLandOffset;
       } else if (width >= 992) {
-        //print("md");
         return colWidth * mdLandOffset;
       } else if (width >= 768) {
-        //print("sm");
         return colWidth * smLandOffset;
       } else {
-        //print("xs");
         return colWidth * xsLandOffset;
       }
     }

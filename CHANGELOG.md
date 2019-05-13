@@ -1,4 +1,13 @@
 
+## [0.1.2] - Very Changes
+    - quit some logs
+
+
+
+## [0.1.1] - Very Changes
+    - add documentation
+
+
 ## [0.1.0] - Very Changes
     - add diferents configurations for landscape and portrait
     - add Offset configurations.
