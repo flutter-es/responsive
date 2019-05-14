@@ -1,6 +1,6 @@
 name: responsive
-description: Allow to make a responsive UI with Flutter easily
-version: 0.1.2
+description: Allow to easily build a responsive Flutter UI
+version: 0.1.3
 author: Marvin O. Quevedo<osielquevedo@gmail.com>
 homepage: https://github.com/flutter-es/responsive
 

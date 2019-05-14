@@ -1,32 +1,10 @@
 
 # responsive
 
-[![build status](https://img.shields.io/travis/flutterchina/responsive/vm.svg?style=flat-square)](https://travis-ci.org/flutterchina/dio)
-[![Pub](https://img.shields.io/pub/v/responsive.svg?style=flat-square)](https://pub.dartlang.org/packages/responsive)
-[![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/flutter-es/responsive)
+Allow to make a responsive UI with Flutter easily, make for Marvin Quevedo, for FlutterEs Community
 
-Allow to easily build a responsive Flutter UI, made by [Marvin Quevedo](https://www.gcoding.academy/pages/quienes-somos) of FlutterEs Community.
 
-Este paquete ha sido creado por la comunidad de Flutter en Español, si deseas ser parte de nosotros, puedes visitar cualquiera de estos links:
-
-[Facebook](https://www.facebook.com/groups/flutter.dart.spanish/)
-
-[Slack](https://bit.ly/FlutterDevsEnEspanol)
-
-[Twitter](https://twitter.com/esflutter)
-
-[www.flutter-es.io](https://www.flutter-es.io)
-
-[Telegram](https://t.me/flutter_dart_spanish)
-
-### Add dependency
-
-```yaml
-dependencies:
-  responsive: 0.1.3
-```
-
-## Easy to use
+## Super simple to use
 
 ```dart
 import 'package:flutter/material.dart';
@@ -229,3 +207,5 @@ class MyApp extends StatelessWidget {
         ));
   }
 }
+
+```
