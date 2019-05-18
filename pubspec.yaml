@@ -1,7 +1,9 @@
 name: responsive
 description: Allow to easily build a responsive Flutter UI
-version: 0.1.3
-author: Marvin O. Quevedo<osielquevedo@gmail.com>
+version: 0.1.5
+authors:
+  - Marvin O. Quevedo<osielquevedo@gmail.com>
+  - Víctor Guardiola <victor.guardiola@gmail.com>
 homepage: https://github.com/flutter-es/responsive
 
 environment:
@@ -15,8 +17,4 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-# For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
-
-# The following section is specific to Flutter.
 flutter:

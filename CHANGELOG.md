@@ -1,22 +1,19 @@
+## [0.1.5] - Cleanup
+
+## [0.1.4] - Refactoring of the FlexibleWidget
 
 ## [0.1.3] - Litte change
-
-
 
 ## [0.1.2] - Very Changes
     - quit some logs
 
-
-
 ## [0.1.1] - Very Changes
     - add documentation
-
 
 ## [0.1.0] - Very Changes
     - add diferents configurations for landscape and portrait
     - add Offset configurations.
     - add Offsets for landscape and portrait too.
-
 
 ## [0.1.0] - Very Changes
     - add diferents configurations for landscape and portrait
