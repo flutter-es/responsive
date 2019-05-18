@@ -1,3 +1,5 @@
+## [0.1.5] - Cleanup
+
 ## [0.1.4] - Refactoring of the FlexibleWidget
 
 ## [0.1.3] - Litte change
