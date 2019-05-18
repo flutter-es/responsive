@@ -1,7 +1,7 @@
 
 # responsive
 
-Allow to make a responsive UI with Flutter easily, make for Marvin Quevedo, for FlutterEs Community
+Allow to easily build a responsive Flutter UI, make for Marvin Quevedo, for FlutterEs Community
 
 
 ## Easy to use

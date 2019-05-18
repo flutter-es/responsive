@@ -5,7 +5,7 @@
 [![Pub](https://img.shields.io/pub/v/responsive.svg?style=flat-square)](https://pub.dartlang.org/packages/responsive)
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://github.com/flutter-es/responsive)
 
-Allow to easily build a responsive Flutter UI, made by [Marvin Quevedo](https://www.gcoding.academy/pages/quienes-somos) of FlutterEs Community.
+Allow to easily build a responsive Flutter UI, made by [Marvin Quevedo](https://www.gcoding.academy/pages/quienes-somos)  and [Víctor Guardiola](mailto:victor.guardiola@gmail.com)of FlutterEs Community.
 
 Este paquete ha sido creado por la comunidad de Flutter en Español, si deseas ser parte de nosotros, puedes visitar cualquiera de estos links:
 
@@ -23,7 +23,7 @@ Este paquete ha sido creado por la comunidad de Flutter en Español, si deseas s
 
 ```yaml
 dependencies:
-  responsive: 0.1.3
+  responsive: 0.1.5
 ```
 
 ## Easy to use
