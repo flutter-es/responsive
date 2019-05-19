@@ -188,7 +188,8 @@ class ResponsiveRowSettings extends InheritedWidget {
   ResponsiveRowSettings(this.columnsCount, Widget child) : super(child: child);
 
   @override
-  bool updateShouldNotify(ResponsiveRowSettings old) => columnsCount != old.columnsCount;
+  bool updateShouldNotify(ResponsiveRowSettings old) =>
+      columnsCount != old.columnsCount;
 
   static ResponsiveRowSettings of(BuildContext context) {
     return context.inheritFromWidgetOfExactType(ResponsiveRowSettings);

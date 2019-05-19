@@ -66,7 +66,8 @@ mixin Responsive {
 
   /// Calc the width in pixels, for the screen and rotation config used actually in the device
   double calcWidth(Size size, Orientation orientation, int columnsCount) {
-    final width = orientation == Orientation.portrait ? size.width : size.height;
+    final width =
+        orientation == Orientation.portrait ? size.width : size.height;
     final colWidth = width / columnsCount;
 
     return colWidth * columns[gridSize(size.width)];
@@ -74,14 +75,24 @@ mixin Responsive {
 
   /// Calc the offset in pixels, for the screen and rotation config used actually in the device
   double calcOffset(Size size, Orientation orientation, int columnsCount) {
-    final width = orientation == Orientation.portrait ? size.width : size.height;
+    final width =
+        orientation == Orientation.portrait ? size.width : size.height;
     final colWidth = width / columnsCount;
-    final orientedOffsets = orientation == Orientation.portrait ? offsets : offsetsLand;
+    final orientedOffsets =
+        orientation == Orientation.portrait ? offsets : offsetsLand;
     return colWidth * orientedOffsets[gridSize(size.width)];
   }
 
   /// Calc the number of columns, for the screen and rotation config used actually in the device
-  static int calcColumns({Size size, Orientation orientation, Columns columns}) {
+  static int calcColumns(
+      {Size size,
+      Orientation orientation,
+      Columns columns,
+      BuildContext context}) {
+    if (context != null) {
+      size = MediaQuery.of(context).size;
+      orientation = MediaQuery.of(context).orientation;
+    }
     return columns.values[gridSize(size.width)];
   }
 
@@ -111,7 +122,8 @@ class Columns {
   Map<int, int> values = {};
 
   /// Constructor
-  Columns({@required int xs, int sm, int md, int lg, int xl, int xxl, int xxxl}) {
+  Columns(
+      {@required int xs, int sm, int md, int lg, int xl, int xxl, int xxxl}) {
     values[Responsive.xs] = xs;
     values[Responsive.sm] = sm ?? values[Responsive.xs];
     values[Responsive.md] = md ?? values[Responsive.sm];

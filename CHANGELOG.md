@@ -1,3 +1,5 @@
+## [0.2.0] - New components
+    -  Refactoring with some  changes
 ## [0.2.0] - New components 
     - Refactoring with some name changes
     - Add new Responsive class to calc Size, Offset or number of columns

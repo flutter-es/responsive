@@ -22,8 +22,7 @@ class ResponsiveGridview extends StatelessWidget {
         },
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: Responsive.calcColumns(
-            size: MediaQuery.of(context).size,
-            orientation: MediaQuery.of(context).orientation,
+            context: context,
             columns: Columns(
               xs: 2,
               sm: 4,
