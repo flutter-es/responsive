@@ -23,13 +23,13 @@ Este paquete ha sido creado por la comunidad de Flutter en Español, si deseas s
 
 ![landscape view](media/landscape.png "landscape view")
 
-[Video exemple](media/responsive.mp4)
+[Video example](media/responsive.gif)
 
 ### Add dependency
 
 ```yaml
 dependencies:
-  responsive: 0.2.0
+  responsive: 0.2.2
 ```
 ## Usage
 
