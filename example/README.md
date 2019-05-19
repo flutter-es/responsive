@@ -1,9 +1,3 @@
-
-# responsive
-
-Allow to make a responsive UI with Flutter easily, make for Marvin Quevedo, for FlutterEs Community
-
-
 ## Super simple to use
 
 ```dart
@@ -204,8 +198,8 @@ class MyApp extends StatelessWidget {
               )
             ],
           ),
-        ));
+        ),
+      );
   }
 }
-
 ```
