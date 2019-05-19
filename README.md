@@ -23,7 +23,7 @@ Este paquete ha sido creado por la comunidad de Flutter en Español, si deseas s
 
 ![landscape view](media/landscape.png "landscape view")
 
-[Video example](media/responsive.gif)
+[Video example](media/responsive.gif "example")
 
 ### Add dependency
 
