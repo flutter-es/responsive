@@ -1,197 +1,123 @@
-// Copyright 2019 Marvin Quevedo. All rights reserved.
-// Use of this source code is governed by a Apache 2.0 license that can be
-// found in the LICENSE file.
+import 'package:flutter/material.dart';
 
-library responsive;
+mixin Responsive {
+  static const int xs = 1;
+  static const int sm = 2;
+  static const int md = 3;
+  static const int lg = 4;
+  static const int xl = 5;
+  static const int xxl = 6;
+  static const int xxxl = 7;
 
-import 'package:flutter/widgets.dart';
+  /// Map to translate gridsize id to a name
+  Map<int, String> gridName = {
+    xs: 'xs',
+    sm: 'sm',
+    md: 'md',
+    lg: 'lg',
+    xl: 'xl',
+    xxl: 'xxl',
+    xxxl: 'xxxl',
+  };
 
-class ResponsiveRow extends StatelessWidget {
-  /// Set the columns count for a row
-  final int columnsCount;
+  /// Columns offset for each grid type
+  Map<int, int> offsets = {
+    xs: 0,
+    sm: 0,
+    md: 0,
+    lg: 0,
+    xl: 0,
+    xxl: 0,
+    xxxl: 0,
+  };
 
-  /// The direction to use as the main axis.
-  ///
-  /// For example, if [direction] is [Axis.horizontal], the default, the
-  /// children are placed adjacent to one another in a horizontal run until the
-  /// available horizontal space is consumed, at which point a subsequent
-  /// children are placed in a new run vertically adjacent to the previous run.
-  final Axis direction;
+  /// Columns offset for each grid type and the device is landscape
+  Map<int, int> offsetsLand = {
+    xs: 0,
+    sm: 0,
+    md: 0,
+    lg: 0,
+    xl: 0,
+    xxl: 0,
+    xxxl: 0,
+  };
 
-  /// How the children within a run should be placed in the main axis.
-  ///
-  /// For example, if [alignment] is [WrapAlignment.center], the children in
-  /// each run are grouped together in the center of their run in the main axis.
-  ///
-  /// Defaults to [WrapAlignment.start].
-  ///
-  /// See also:
-  ///
-  ///  * [runAlignment], which controls how the runs are placed relative to each
-  ///    other in the cross axis.
-  ///  * [crossAxisAlignment], which controls how the children within each run
-  ///    are placed relative to each other in the cross axis.
-  final WrapAlignment alignment;
+  /// Columns counts for each grid type
+  Map<int, int> columns = {
+    xs: 12,
+    sm: 6,
+    md: 6,
+    lg: 3,
+    xl: 3,
+    xxl: 1,
+    xxxl: 1,
+  };
 
-  /// How much space to place between children in a run in the main axis.
-  ///
-  /// For example, if [spacing] is 10.0, the children will be spaced at least
-  /// 10.0 logical pixels apart in the main axis.
-  ///
-  /// If there is additional free space in a run (e.g., because the wrap has a
-  /// minimum size that is not filled or because some runs are longer than
-  /// others), the additional free space will be allocated according to the
-  /// [alignment].
-  ///
-  /// Defaults to 0.0.
-  final double spacing;
+  /// Columns counts for each grid type and the device is landscape
+  Map<int, int> columnsLand = {
+    xs: 12,
+    sm: 6,
+    md: 6,
+    lg: 3,
+    xl: 3,
+    xxl: 1,
+    xxxl: 1,
+  };
 
-  /// How the runs themselves should be placed in the cross axis.
-  ///
-  /// For example, if [runAlignment] is [WrapAlignment.center], the runs are
-  /// grouped together in the center of the overall [Wrap] in the cross axis.
-  ///
-  /// Defaults to [WrapAlignment.start].
-  ///
-  /// See also:
-  ///
-  ///  * [alignment], which controls how the children within each run are placed
-  ///    relative to each other in the main axis.
-  ///  * [crossAxisAlignment], which controls how the children within each run
-  ///    are placed relative to each other in the cross axis.
-  final WrapAlignment runAlignment;
+  /// Calc the width in pixels, for the screen and rotation config used actually in the device
+  double calcWidth(Size size, Orientation orientation, int columnsCount) {
+    final width = orientation == Orientation.portrait ? size.width : size.height;
+    final colWidth = width / columnsCount;
 
-  /// How much space to place between the runs themselves in the cross axis.
-  ///
-  /// For example, if [runSpacing] is 10.0, the runs will be spaced at least
-  /// 10.0 logical pixels apart in the cross axis.
-  ///
-  /// If there is additional free space in the overall [Wrap] (e.g., because
-  /// the wrap has a minimum size that is not filled), the additional free space
-  /// will be allocated according to the [runAlignment].
-  ///
-  /// Defaults to 0.0.
-  final double runSpacing;
+    return colWidth * columns[gridSize(size.width)];
+  }
 
-  /// How the children within a run should be aligned relative to each other in
-  /// the cross axis.
-  ///
-  /// For example, if this is set to [WrapCrossAlignment.end], and the
-  /// [direction] is [Axis.horizontal], then the children within each
-  /// run will have their bottom edges aligned to the bottom edge of the run.
-  ///
-  /// Defaults to [WrapCrossAlignment.start].
-  ///
-  /// See also:
-  ///
-  ///  * [alignment], which controls how the children within each run are placed
-  ///    relative to each other in the main axis.
-  ///  * [runAlignment], which controls how the runs are placed relative to each
-  ///    other in the cross axis.
-  final WrapCrossAlignment crossAxisAlignment;
+  /// Calc the offset in pixels, for the screen and rotation config used actually in the device
+  double calcOffset(Size size, Orientation orientation, int columnsCount) {
+    final width = orientation == Orientation.portrait ? size.width : size.height;
+    final colWidth = width / columnsCount;
+    final orientedOffsets = orientation == Orientation.portrait ? offsets : offsetsLand;
+    return colWidth * orientedOffsets[gridSize(size.width)];
+  }
 
-  /// Determines the order to lay children out horizontally and how to interpret
-  /// `start` and `end` in the horizontal direction.
-  ///
-  /// Defaults to the ambient [Directionality].
-  ///
-  /// If the [direction] is [Axis.horizontal], this controls order in which the
-  /// children are positioned (left-to-right or right-to-left), and the meaning
-  /// of the [alignment] property's [WrapAlignment.start] and
-  /// [WrapAlignment.end] values.
-  ///
-  /// If the [direction] is [Axis.horizontal], and either the
-  /// [alignment] is either [WrapAlignment.start] or [WrapAlignment.end], or
-  /// there's more than one child, then the [textDirection] (or the ambient
-  /// [Directionality]) must not be null.
-  ///
-  /// If the [direction] is [Axis.vertical], this controls the order in which
-  /// runs are positioned, the meaning of the [runAlignment] property's
-  /// [WrapAlignment.start] and [WrapAlignment.end] values, as well as the
-  /// [crossAxisAlignment] property's [WrapCrossAlignment.start] and
-  /// [WrapCrossAlignment.end] values.
-  ///
-  /// If the [direction] is [Axis.vertical], and either the
-  /// [runAlignment] is either [WrapAlignment.start] or [WrapAlignment.end], the
-  /// [crossAxisAlignment] is either [WrapCrossAlignment.start] or
-  /// [WrapCrossAlignment.end], or there's more than one child, then the
-  /// [textDirection] (or the ambient [Directionality]) must not be null.
-  final TextDirection textDirection;
+  /// Calc the number of columns, for the screen and rotation config used actually in the device
+  static int calcColumns({Size size, Orientation orientation, Columns columns}) {
+    return columns.values[gridSize(size.width)];
+  }
 
-  /// Determines the order to lay children out vertically and how to interpret
-  /// `start` and `end` in the vertical direction.
-  ///
-  /// If the [direction] is [Axis.vertical], this controls which order children
-  /// are painted in (down or up), the meaning of the [alignment] property's
-  /// [WrapAlignment.start] and [WrapAlignment.end] values.
-  ///
-  /// If the [direction] is [Axis.vertical], and either the [alignment]
-  /// is either [WrapAlignment.start] or [WrapAlignment.end], or there's
-  /// more than one child, then the [verticalDirection] must not be null.
-  ///
-  /// If the [direction] is [Axis.horizontal], this controls the order in which
-  /// runs are positioned, the meaning of the [runAlignment] property's
-  /// [WrapAlignment.start] and [WrapAlignment.end] values, as well as the
-  /// [crossAxisAlignment] property's [WrapCrossAlignment.start] and
-  /// [WrapCrossAlignment.end] values.
-  ///
-  /// If the [direction] is [Axis.horizontal], and either the
-  /// [runAlignment] is either [WrapAlignment.start] or [WrapAlignment.end], the
-  /// [crossAxisAlignment] is either [WrapCrossAlignment.start] or
-  /// [WrapCrossAlignment.end], or there's more than one child, then the
-  /// [verticalDirection] must not be null.
-  final VerticalDirection verticalDirection;
+  /// Method to return grid size name
+  static int gridSize(double width) {
+    var sizeName = xs;
+    if (width >= 576 && width < 768) {
+      sizeName = sm;
+    } else if (width >= 768 && width < 992) {
+      sizeName = md;
+    } else if (width >= 992 && width < 1200) {
+      sizeName = lg;
+    } else if (width >= 1200 && width < 1366) {
+      sizeName = xl;
+    } else if (width >= 1366 && width < 1440) {
+      sizeName = xxl;
+    } else if (width >= 1440) {
+      sizeName = xxxl;
+    }
 
-  /// The widgets below this widget in the tree.
-  ///
-  /// If this list is going to be mutated, it is usually wise to put [Key]s on
-  /// the widgets, so that the framework can match old configurations to new
-  /// configurations and maintain the underlying render objects.
-  final List<Widget> children;
-
-  ResponsiveRow(
-      {this.children,
-      this.columnsCount = 12,
-      this.direction = Axis.horizontal,
-      this.alignment = WrapAlignment.start,
-      this.spacing = 0.0,
-      this.runAlignment = WrapAlignment.start,
-      this.runSpacing = 0.0,
-      this.crossAxisAlignment = WrapCrossAlignment.start,
-      this.textDirection,
-      this.verticalDirection = VerticalDirection.down})
-      : assert(children != null),
-        assert(columnsCount > 0);
-
-  @override
-  Widget build(BuildContext context) {
-    //Use a simple Wrap :-)
-
-    return ResponsiveSettings(
-        this.columnsCount,
-        Wrap(
-            key: key,
-            children: children,
-            direction: Axis.horizontal,
-            alignment: alignment,
-            spacing: spacing,
-            runAlignment: runAlignment,
-            crossAxisAlignment: crossAxisAlignment,
-            textDirection: textDirection,
-            verticalDirection: verticalDirection));
+    return sizeName;
   }
 }
 
-class ResponsiveSettings extends InheritedWidget {
-  final int columnsCount;
+class Columns {
+  /// Columns counts for each grid type and the device is landscape
+  Map<int, int> values = {};
 
-  ResponsiveSettings(this.columnsCount, Widget child) : super(child: child);
-
-  @override
-  bool updateShouldNotify(ResponsiveSettings old) =>
-      columnsCount != old.columnsCount;
-
-  static ResponsiveSettings of(BuildContext context) {
-    return context.inheritFromWidgetOfExactType(ResponsiveSettings);
+  /// Constructor
+  Columns({@required int xs, int sm, int md, int lg, int xl, int xxl, int xxxl}) {
+    values[Responsive.xs] = xs;
+    values[Responsive.sm] = sm ?? values[Responsive.xs];
+    values[Responsive.md] = md ?? values[Responsive.sm];
+    values[Responsive.lg] = lg ?? values[Responsive.md];
+    values[Responsive.xl] = xl ?? values[Responsive.lg];
+    values[Responsive.xxl] = xxl ?? values[Responsive.xl];
+    values[Responsive.xxxl] = xxxl ?? values[Responsive.xxl];
   }
 }
