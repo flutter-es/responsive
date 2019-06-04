@@ -1,3 +1,5 @@
+## [0.2.3] - New components
+    - Healing package
 ## [0.2.2] - New components
     -  cleaning help files
 ## [0.2.1] - New components

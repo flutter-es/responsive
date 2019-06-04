@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:responsive/responsive.dart';
 import 'package:responsive/responsive_row.dart';
 
+// ignore: must_be_immutable
 class FlexWidget extends StatelessWidget with Responsive {
   /// Child for apply the flex Columns
   final Widget child;
