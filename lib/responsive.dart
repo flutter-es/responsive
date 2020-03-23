@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+enum ScreenSize{
+  xs,sm, md, lg, xl, xxl, xxxl
+}
 
 mixin Responsive {
   static const int xs = 1;

@@ -64,10 +64,10 @@ class FlexWidget extends StatelessWidget with Responsive {
     final size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
     final settings = ResponsiveRowSettings.of(context);
-    if (settings == null) {
+   /*  if (settings == null) {
       throw Exception("The FlexWidget is not into a ResponsiveRow");
-    }
-    final columnsCount = settings.columnsCount;
+    } */
+    final columnsCount = settings != null ? settings.columnsCount : 12;
     final gridSizeValue = Responsive.gridSize(size.width);
     if (columns[gridSizeValue] > columnsCount) {
       throw Exception(
