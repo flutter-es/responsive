@@ -1,3 +1,5 @@
+## [0.2.5] - New components
+    - Grid update
 ## [0.2.4] - New components
     - Update for Flutter updates
 ## [0.2.3] - New components
