@@ -1,3 +1,5 @@
+## [0.2.6 - Correction to bugs
+    - Default params are not null
 ## [0.2.5] - New components
     - Grid update
 ## [0.2.4] - New components
