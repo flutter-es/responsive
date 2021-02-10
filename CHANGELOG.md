@@ -1,3 +1,5 @@
+## [0.2.4] - New components
+    - Update for Flutter updates
 ## [0.2.3] - New components
     - Healing package
 ## [0.2.2] - New components

@@ -192,6 +192,6 @@ class ResponsiveRowSettings extends InheritedWidget {
       columnsCount != old.columnsCount;
 
   static ResponsiveRowSettings of(BuildContext context) {
-    return context.inheritFromWidgetOfExactType(ResponsiveRowSettings);
+    return context.dependOnInheritedWidgetOfExactType<ResponsiveRowSettings>();
   }
 }
