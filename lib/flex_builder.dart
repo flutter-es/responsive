@@ -106,12 +106,14 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
     final offset = calcOffset(size, orientation, columnsCount);
     final width = calcWidth(size, orientation, columnsCount);
     final flexSize = Size(width, size.height);
+    final screenSize = ScreenSize.values[gridSizeValue - 1];
+    // print(screenSize);
     return FlexWidgetSettings(
       child: this.builder(
         context,
         width,
         offset,
-        ScreenSize.values[Responsive.gridSize(width) - 1],
+        screenSize,
       ),
       size: flexSize,
     );

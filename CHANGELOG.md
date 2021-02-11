@@ -1,3 +1,5 @@
+## [0.2.8+1 - Fix FlexBuilder
+    - Fixed
 ## [0.2.8 - Scaffold and flex Builder
     - Organize files
 ## [0.2.7 - Scaffold and flex Builder
