@@ -6,6 +6,8 @@ import 'package:flutter/widgets.dart';
 import 'package:responsive/responsive.dart';
 import 'package:responsive/responsive_row.dart';
 
+import 'logic.dart';
+
 typedef FlexBuilder = Widget Function(
   BuildContext context,
   double width,
@@ -18,52 +20,70 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
   /// builder according column calc
   final FlexBuilder builder;
 
-  FlexBuilderWidget(
-      {@required this.builder,
-      xs = 12,
-      xsOffset = 0,
-      xsLand,
-      xsLandOffset,
-      sm = 6,
-      smOffset = 0,
-      smLand,
-      smLandOffset,
-      md = 6,
-      mdOffset = 0,
-      mdLand,
-      mdLandOffset,
-      lg = 3,
-      lgOffset = 0,
-      lgLand,
-      lgLandOffset,
-      xl = 3,
-      xlOffset = 0,
-      xlLand,
-      xlLandOffset}) {
-    columns = Columns(
+  FlexBuilderWidget({
+    @required this.builder,
+    int xs = 12,
+    int xsOffset = 0,
+    int xsLand,
+    int xsLandOffset,
+    int sm = 6,
+    int smOffset = 0,
+    int smLand,
+    int smLandOffset,
+    int md = 6,
+    int mdOffset = 0,
+    int mdLand,
+    int mdLandOffset,
+    int lg = 3,
+    int lgOffset = 0,
+    int lgLand,
+    int lgLandOffset,
+    int xl = 3,
+    int xlOffset = 0,
+    int xlLand = 0,
+    int xlLandOffset,
+    int xxl = 3,
+    int xxlOffset = 0,
+    int xxlLand,
+    int xxlLandOffset,
+    int xxxl = 3,
+    int xxxlOffset = 0,
+    int xxxlLand,
+    int xxxlLandOffset,
+  }) {
+    columns = FlexColumns(
       xs: xs,
       sm: sm,
       md: md,
       lg: lg,
       xl: xl,
+      xxl: xxl,
+      xxxl: xxxl,
     ).values;
-    columnsLand = Columns(
-      xs: xsLand ?? xs,
-      sm: smLand ?? sm,
-      md: mdLand ?? md,
-      lg: lgLand ?? lg,
-      xl: xlLand ?? xl,
-    ).values;
+    columnsLand = FlexColumns(
+            xs: xsLand ?? xs,
+            sm: smLand ?? sm,
+            md: mdLand ?? md,
+            lg: lgLand ?? lg,
+            xl: xlLand ?? xl,
+            xxl: xxlLand ?? xxl,
+            xxxl: xxxlLand ?? xxxl)
+        .values;
     offsets[Responsive.xs] = xsOffset;
     offsets[Responsive.sm] = smOffset;
     offsets[Responsive.md] = mdOffset;
     offsets[Responsive.lg] = lgOffset;
     offsets[Responsive.xl] = xlOffset;
+    offsets[Responsive.xxl] = xxlOffset;
+    offsets[Responsive.xxxl] = xxxlOffset;
+
     offsetsLand[Responsive.xs] = xsLandOffset ?? xsOffset;
     offsetsLand[Responsive.sm] = smLandOffset ?? smOffset;
     offsetsLand[Responsive.md] = mdLandOffset ?? mdOffset;
     offsetsLand[Responsive.lg] = lgLandOffset ?? lgOffset;
     offsetsLand[Responsive.xl] = xlLandOffset ?? xlOffset;
+    offsetsLand[Responsive.xxl] = xxlLandOffset ?? xxlOffset;
+    offsetsLand[Responsive.xxxl] = xxxlLandOffset ?? xxxlOffset;
   }
 
   @override

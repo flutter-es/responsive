@@ -1,3 +1,13 @@
+## [0.2.8 - Scaffold and flex Builder
+    - Organize files
+## [0.2.7 - Scaffold and flex Builder
+    - Add new components for create seft responsive logic
+## [0.2.6 - Correction to bugs
+    - Default params are not null
+## [0.2.5] - New components
+    - Grid update
+## [0.2.4] - New components
+    - Update for Flutter updates
 ## [0.2.3] - New components
     - Healing package
 ## [0.2.2] - New components

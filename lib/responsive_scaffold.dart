@@ -3,6 +3,7 @@ import 'package:responsive/flex_builder.dart';
 import 'package:responsive/flex_widget.dart';
 import 'package:responsive/responsive_row.dart';
 
+import 'logic.dart';
 import 'responsive.dart';
 
 class ResponsiveScaffold extends StatelessWidget {
