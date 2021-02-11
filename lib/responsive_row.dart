@@ -148,7 +148,6 @@ class ResponsiveRow extends StatelessWidget {
   /// the widgets, so that the framework can match old configurations to new
   /// configurations and maintain the underlying render objects.
   final List<Widget> children;
-
   ResponsiveRow(
       {this.children,
       this.columnsCount = 12,

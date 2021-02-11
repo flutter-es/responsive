@@ -68,12 +68,14 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
     final settings = ResponsiveRowSettings.of(context);
-    /*  if (settings == null) {
-      throw Exception("The FlexWidget is not into a ResponsiveRow");
-    } */
+    final flexSettings = FlexWidgetSettings.of(context);
+    if (flexSettings?.size != null) {
+      size = flexSettings.size;
+      print(size);
+    }
     final columnsCount = settings != null ? settings.columnsCount : 12;
     final gridSizeValue = Responsive.gridSize(size.width);
     if (columns[gridSizeValue] > columnsCount) {
@@ -83,10 +85,27 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
 
     final offset = calcOffset(size, orientation, columnsCount);
     final width = calcWidth(size, orientation, columnsCount);
-    return this.builder(
+    final flexSize = Size(width, size.height);
+    return FlexWidgetSettings(
+      child: this.builder(
         context,
-        width, offset,
-        ScreenSize.values[Responsive.gridSize(width)-1],
-      ); 
+        width,
+        offset,
+        ScreenSize.values[Responsive.gridSize(width) - 1],
+      ),
+      size: flexSize,
+    );
+  }
+}
+
+class FlexWidgetSettings extends InheritedWidget {
+  final Size size;
+  FlexWidgetSettings({this.size, Widget child}) : super(child: child);
+
+  @override
+  bool updateShouldNotify(FlexWidgetSettings old) => size != old.size;
+
+  static FlexWidgetSettings of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<FlexWidgetSettings>();
   }
 }

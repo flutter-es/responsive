@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive/flex_widget.dart';
+import 'package:responsive/responsive.dart';
 import 'package:responsive/responsive_row.dart';
 
 class FlexibleRowDemo extends StatelessWidget {
@@ -17,20 +18,60 @@ class FlexibleRowDemo extends StatelessWidget {
             crossAxisAlignment: WrapCrossAlignment.center,
             children: <Widget>[
               FlexWidget(
-                child: Container(
-                  height: 100,
-                  color: Colors.amber,
-                ),
-                xs: 4,
-                xsOffset: 2,
-                sm: 3,
-                md: 2,
-                lg: 1,
-                xsLand: 4,
-                xsLandOffset: 0,
-                smLand: 2,
-                mdLand: 1,
-                lgLand: 1,
+                builder: ((BuildContext context, double width, double offset,
+                    ScreenSize screenSize) {
+                  return Container(
+                    color: Colors.green,
+                    width: width,
+                    alignment: Alignment.center,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: <Widget>[
+                        ResponsiveRow(
+                          children: <Widget>[
+                            FlexWidget(
+                              xs: 6,
+                              child: Container(
+                                color: Colors.black,
+                                height: 100,
+                              ),
+                            ),
+                            FlexWidget(
+                              xs: 6,
+                              builder: (BuildContext context, double width,
+                                  double offset, ScreenSize screenSize) {
+                                return Container(
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    width.toString(),
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  color: Colors.blue,
+                                  width: width,
+                                  height: 100,
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                        Center(
+                          child: Text(
+                            width.toString(),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 32,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+                xs: 12,
+                md: 12,
               ),
               FlexWidget(
                 child: Container(

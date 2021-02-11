@@ -3,91 +3,72 @@
 // found in the LICENSE file.
 
 import 'package:flutter/widgets.dart';
+import 'package:responsive/flex_builder.dart';
 import 'package:responsive/responsive.dart';
-import 'package:responsive/responsive_row.dart';
 
 // ignore: must_be_immutable
-class FlexWidget extends StatelessWidget with Responsive {
-  /// Child for apply the flex Columns
-  final Widget child;
-
+class FlexWidget extends FlexBuilderWidget {
   FlexWidget(
-      {this.child,
+      {Widget child,
+      FlexBuilder builder,
       xs = 12,
       xsOffset = 0,
       xsLand,
       xsLandOffset,
-      sm = 6,
+      sm,
       smOffset = 0,
       smLand,
       smLandOffset,
-      md = 6,
+      md,
       mdOffset = 0,
       mdLand,
       mdLandOffset,
-      lg = 3,
+      lg,
       lgOffset = 0,
       lgLand,
       lgLandOffset,
-      xl = 3,
+      xl,
       xlOffset = 0,
       xlLand,
-      xlLandOffset}) {
-    columns = Columns(
-      xs: xs,
-      sm: sm,
-      md: md,
-      lg: lg,
-      xl: xl,
-    ).values;
-    columnsLand = Columns(
-      xs: xsLand ?? xs,
-      sm: smLand ?? sm,
-      md: mdLand ?? md,
-      lg: lgLand ?? lg,
-      xl: xlLand ?? xl,
-    ).values;
-    offsets[Responsive.xs] = xsOffset;
-    offsets[Responsive.sm] = smOffset;
-    offsets[Responsive.md] = mdOffset;
-    offsets[Responsive.lg] = lgOffset;
-    offsets[Responsive.xl] = xlOffset;
-    offsetsLand[Responsive.xs] = xsLandOffset ?? xsOffset;
-    offsetsLand[Responsive.sm] = smLandOffset ?? smOffset;
-    offsetsLand[Responsive.md] = mdLandOffset ?? mdOffset;
-    offsetsLand[Responsive.lg] = lgLandOffset ?? lgOffset;
-    offsetsLand[Responsive.xl] = xlLandOffset ?? xlOffset;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final orientation = MediaQuery.of(context).orientation;
-    final settings = ResponsiveRowSettings.of(context);
-   /*  if (settings == null) {
-      throw Exception("The FlexWidget is not into a ResponsiveRow");
-    } */
-    final columnsCount = settings != null ? settings.columnsCount : 12;
-    final gridSizeValue = Responsive.gridSize(size.width);
-    if (columns[gridSizeValue] > columnsCount) {
-      throw Exception(
-          "${gridName[gridSizeValue]} is bigger than columnsCount: ${columns[gridSizeValue]}  > $columnsCount");
-    }
-
-    final offset = calcOffset(size, orientation, columnsCount);
-    if (offset > 0.0) {
-      return Container(
-        margin: EdgeInsets.only(left: offset),
-        child: SizedBox(
-          width: calcWidth(size, orientation, columnsCount),
-          child: this.child,
-        ),
-      );
-    } else {
-      return SizedBox(
-        width: calcWidth(size, orientation, columnsCount),
-        child: this.child,
-      );
-    }
-  }
+      xlLandOffset})
+      : assert(builder == null || child == null),
+        super(
+            builder: builder ??
+                (BuildContext context, double width, double offset,
+                    ScreenSize screenSize) {
+                  if (offset > 0.0) {
+                    return Container(
+                      margin: EdgeInsets.only(left: offset),
+                      child: SizedBox(
+                        width: width,
+                        child: child,
+                      ),
+                    );
+                  } else {
+                    return SizedBox(
+                      width: width,
+                      child: child,
+                    );
+                  }
+                },
+            xs: xs,
+            xsOffset: xsOffset,
+            xsLand: xsLand,
+            xsLandOffset: xsLandOffset,
+            sm: sm,
+            smOffset: smOffset,
+            smLand: smLand,
+            smLandOffset: smLandOffset,
+            md: md,
+            mdOffset: mdOffset,
+            mdLand: mdLand,
+            mdLandOffset: mdLandOffset,
+            lg: lg,
+            lgOffset: lgOffset,
+            lgLand: lgLand,
+            lgLandOffset: lgLandOffset,
+            xl: xl,
+            xlOffset: xlOffset,
+            xlLand: xlLand,
+            xlLandOffset: xlLandOffset);
 }
