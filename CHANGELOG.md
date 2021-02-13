@@ -1,3 +1,5 @@
+## [0.2.8+2 - Fix XXXL Offset
+    - Fixed
 ## [0.2.8+1 - Fix FlexBuilder
     - Fixed
 ## [0.2.8 - Scaffold and flex Builder

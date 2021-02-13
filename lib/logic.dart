@@ -79,10 +79,14 @@ mixin Responsive {
   double calcOffset(Size size, Orientation orientation, int columnsCount) {
     final width =
         orientation == Orientation.portrait ? size.width : size.height;
+    print("calcoffset width = $width");
     final colWidth = width / columnsCount;
+    print("calcoffset offsets = $offsets, ");
     final orientedOffsets =
         orientation == Orientation.portrait ? offsets : offsetsLand;
-    return colWidth * orientedOffsets[gridSize(size.width)];
+    final result = colWidth * orientedOffsets[gridSize(size.width)];
+    print("calcoffset result = $result, ");
+    return result;
   }
 
   /// Calc the number of columns, for the screen and rotation config used actually in the device

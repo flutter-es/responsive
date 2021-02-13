@@ -80,5 +80,13 @@ class FlexWidget extends FlexBuilderWidget {
             xl: xl,
             xlOffset: xlOffset,
             xlLand: xlLand,
-            xlLandOffset: xlLandOffset);
+            xlLandOffset: xlLandOffset,
+            xxl: xxl,
+            xxlLand: xxlLand,
+            xxlLandOffset: xxlLandOffset,
+            xxlOffset: xxlOffset,
+            xxxl: xxxl,
+            xxxlLand: xxxlLand,
+            xxxlLandOffset: xxlLandOffset,
+            xxxlOffset: xxxlOffset);
 }

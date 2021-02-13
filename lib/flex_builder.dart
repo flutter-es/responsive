@@ -76,6 +76,8 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
     offsets[Responsive.xl] = xlOffset;
     offsets[Responsive.xxl] = xxlOffset;
     offsets[Responsive.xxxl] = xxxlOffset;
+    print("xxxlOffset $xxxlOffset");
+    print("offset $offsets");
 
     offsetsLand[Responsive.xs] = xsLandOffset ?? xsOffset;
     offsetsLand[Responsive.sm] = smLandOffset ?? smOffset;
@@ -107,7 +109,7 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
     final width = calcWidth(size, orientation, columnsCount);
     final flexSize = Size(width, size.height);
     final screenSize = ScreenSize.values[gridSizeValue - 1];
-    // print(screenSize);
+
     return FlexWidgetSettings(
       child: this.builder(
         context,
