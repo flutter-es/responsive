@@ -79,13 +79,13 @@ mixin Responsive {
   double calcOffset(Size size, Orientation orientation, int columnsCount) {
     final width =
         orientation == Orientation.portrait ? size.width : size.height;
-    print("calcoffset width = $width");
+    //print("calcoffset width = $width");
     final colWidth = width / columnsCount;
-    print("calcoffset offsets = $offsets, ");
+    //print("calcoffset offsets = $offsets, ");
     final orientedOffsets =
         orientation == Orientation.portrait ? offsets : offsetsLand;
     final result = colWidth * orientedOffsets[gridSize(size.width)];
-    print("calcoffset result = $result, ");
+    //print("calcoffset result = $result, ");
     return result;
   }
 
