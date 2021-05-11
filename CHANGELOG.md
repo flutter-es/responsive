@@ -1,4 +1,6 @@
 
+## [0.2.8+4 - Fixes
+    - fixed
 ## [0.2.8+3 - PersonalizableWidget
     - Added new feature
 ## [0.2.8+2 - Remove prints
