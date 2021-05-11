@@ -10,6 +10,9 @@ class ResponsiveRow extends StatelessWidget {
   /// Set the columns count for a row
   final int columnsCount;
 
+  /// Remove a wrap y use a Row
+  final bool forceOnlyRow;
+
   /// The direction to use as the main axis.
   ///
   /// For example, if [direction] is [Axis.horizontal], the default, the
@@ -148,24 +151,36 @@ class ResponsiveRow extends StatelessWidget {
   /// the widgets, so that the framework can match old configurations to new
   /// configurations and maintain the underlying render objects.
   final List<Widget> children;
-  ResponsiveRow(
-      {this.children,
-      this.columnsCount = 12,
-      this.direction = Axis.horizontal,
-      this.alignment = WrapAlignment.start,
-      this.spacing = 0.0,
-      this.runAlignment = WrapAlignment.start,
-      this.runSpacing = 0.0,
-      this.crossAxisAlignment = WrapCrossAlignment.start,
-      this.textDirection,
-      this.verticalDirection = VerticalDirection.down})
-      : assert(children != null),
+  ResponsiveRow({
+    this.children,
+    this.columnsCount = 12,
+    this.direction = Axis.horizontal,
+    this.alignment = WrapAlignment.start,
+    this.spacing = 0.0,
+    this.runAlignment = WrapAlignment.start,
+    this.runSpacing = 0.0,
+    this.crossAxisAlignment = WrapCrossAlignment.start,
+    this.textDirection,
+    this.verticalDirection = VerticalDirection.down,
+    this.forceOnlyRow = false,
+  })  : assert(children != null),
         assert(columnsCount > 0);
 
   @override
   Widget build(BuildContext context) {
     //Use a simple Wrap :-)
 
+    if (forceOnlyRow) {
+      return ResponsiveRowSettings(
+          this.columnsCount,
+          Row(
+              key: key,
+              children: children,
+              mainAxisAlignment: mainAxisAlignmentRow,
+              crossAxisAlignment: crossAxisAlignmentRow,
+              textDirection: textDirection,
+              verticalDirection: verticalDirection));
+    }
     return ResponsiveRowSettings(
         this.columnsCount,
         Wrap(
@@ -178,6 +193,34 @@ class ResponsiveRow extends StatelessWidget {
             crossAxisAlignment: crossAxisAlignment,
             textDirection: textDirection,
             verticalDirection: verticalDirection));
+  }
+
+  CrossAxisAlignment get crossAxisAlignmentRow {
+    switch (crossAxisAlignment) {
+      case WrapCrossAlignment.start:
+        return CrossAxisAlignment.start;
+      case WrapCrossAlignment.end:
+        return CrossAxisAlignment.end;
+      case WrapCrossAlignment.center:
+        return CrossAxisAlignment.center;
+    }
+  }
+
+  MainAxisAlignment get mainAxisAlignmentRow {
+    switch (alignment) {
+      case WrapAlignment.start:
+        return MainAxisAlignment.start;
+      case WrapAlignment.end:
+        return MainAxisAlignment.end;
+      case WrapAlignment.center:
+        return MainAxisAlignment.center;
+      case WrapAlignment.spaceBetween:
+        return MainAxisAlignment.spaceBetween;
+      case WrapAlignment.spaceAround:
+        return MainAxisAlignment.spaceAround;
+      case WrapAlignment.spaceEvenly:
+        return MainAxisAlignment.spaceEvenly;
+    }
   }
 }
 

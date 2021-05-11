@@ -1,3 +1,8 @@
+
+## [0.2.8+3 - PersonalizableWidget
+    - Added new feature
+## [0.2.8+2 - Remove prints
+    - Fixed
 ## [0.2.8+2 - Fix XXXL Offset
     - Fixed
 ## [0.2.8+1 - Fix FlexBuilder

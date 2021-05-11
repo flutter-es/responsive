@@ -3,25 +3,16 @@
 // found in the LICENSE file.
 
 import 'package:flutter/widgets.dart';
+import 'package:responsive/flex_builder.dart';
 import 'package:responsive/responsive.dart';
-import 'package:responsive/responsive_row.dart';
 
 import 'logic.dart';
 
-typedef FlexBuilder = Widget Function(
-  BuildContext context,
-  double width,
-  double offset,
-  ScreenSize screenSize,
-);
-
 // ignore: must_be_immutable
-class FlexBuilderWidget extends StatelessWidget with Responsive {
-  /// builder according column calc
-  final FlexBuilder builder;
-
-  FlexBuilderWidget({
-    @required this.builder,
+class FlexPersonalizableWidget extends StatelessWidget with Responsive {
+  Widget child;
+  FlexPersonalizableWidget(
+    this.child, {
     int xs = 12,
     int xsOffset = 0,
     int xsLand,
@@ -76,8 +67,6 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
     offsets[Responsive.xl] = xlOffset;
     offsets[Responsive.xxl] = xxlOffset;
     offsets[Responsive.xxxl] = xxxlOffset;
-    //print("xxxlOffset $xxxlOffset");
-    //print("offset $offsets");
 
     offsetsLand[Responsive.xs] = xsLandOffset ?? xsOffset;
     offsetsLand[Responsive.sm] = smLandOffset ?? smOffset;
@@ -90,53 +79,44 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    final orientation = MediaQuery.of(context).orientation;
-    final settings = ResponsiveRowSettings.of(context);
-    final flexSettings = FlexWidgetSettings.of(context);
-    if (flexSettings?.size != null) {
-      size = flexSettings.size;
-      //print(size);
-    }
-    final columnsCount = settings != null ? settings.columnsCount : 12;
-    if (settings == null) {
-      // print("Dont settings founded");
-    } else {
-      //print("settings ${settings?.columnsCount}");
-    }
-    //print("columnsCount = $columnsCount");
-
-    final gridSizeValue = Responsive.gridSize(size.width);
-    if (columns[gridSizeValue] > columnsCount) {
-      throw Exception(
-          "${gridName[gridSizeValue]} is bigger than columnsCount: ${columns[gridSizeValue]}  > $columnsCount");
-    }
-
-    final offset = calcOffset(size, orientation, columnsCount);
-    final width = calcWidth(size, orientation, columnsCount);
-    final flexSize = Size(width, size.height);
-    final screenSize = ScreenSize.values[gridSizeValue - 1];
-
-    return FlexWidgetSettings(
-      child: this.builder(
-        context,
-        width,
-        offset,
-        screenSize,
-      ),
-      size: flexSize,
+    var flexWidget = FlexBuilderWidget(
+      builder: (BuildContext context, double width, double offset,
+          ScreenSize screenSize) {
+        if (offset > 0.0) {
+          return Container(
+            margin: EdgeInsets.only(left: offset),
+            child: SizedBox(
+              width: width,
+              child: child,
+            ),
+          );
+        } else {
+          print("width $width");
+          return SizedBox(
+            width: width,
+            child: child,
+          );
+        }
+      },
     );
+
+    //Complete the grid settings
+    flexWidget.columns = this.columns;
+    flexWidget.columnsLand = this.columnsLand;
+    flexWidget.offsets = this.offsets;
+    flexWidget.offsetsLand = this.offsetsLand;
+    return flexWidget;
   }
-}
 
-class FlexWidgetSettings extends InheritedWidget {
-  final Size size;
-  FlexWidgetSettings({this.size, Widget child}) : super(child: child);
+  /// Do a copy of the object with other child
+  FlexPersonalizableWidget copyWith(Widget child) {
+    final flexObject = new FlexPersonalizableWidget(child);
 
-  @override
-  bool updateShouldNotify(FlexWidgetSettings old) => size != old.size;
-
-  static FlexWidgetSettings of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<FlexWidgetSettings>();
+    //Complete the grid settings
+    flexObject.columns = this.columns;
+    flexObject.columnsLand = this.columnsLand;
+    flexObject.offsets = this.offsets;
+    flexObject.offsetsLand = this.offsetsLand;
+    return flexObject;
   }
 }
