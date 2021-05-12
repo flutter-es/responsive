@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 enum ScreenSize { xs, sm, md, lg, xl, xxl, xxxl }
@@ -68,18 +69,21 @@ mixin Responsive {
 
   /// Calc the width in pixels, for the screen and rotation config used actually in the device
   double calcWidth(Size size, Orientation orientation, int columnsCount) {
-    final width =
-        orientation == Orientation.portrait ? size.width : size.height;
+    final width = orientation == Orientation.portrait || kIsWeb
+        ? size.width
+        : size.height;
     final colWidth = width / columnsCount;
+    //   print("colWidth $colWidth");
 
     return colWidth * columns[gridSize(size.width)];
   }
 
   /// Calc the offset in pixels, for the screen and rotation config used actually in the device
   double calcOffset(Size size, Orientation orientation, int columnsCount) {
-    final width =
-        orientation == Orientation.portrait ? size.width : size.height;
-    //print("calcoffset width = $width");
+    final width = orientation == Orientation.portrait || kIsWeb
+        ? size.width
+        : size.height;
+
     final colWidth = width / columnsCount;
     //print("calcoffset offsets = $offsets, ");
     final orientedOffsets =

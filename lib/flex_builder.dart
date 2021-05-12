@@ -76,8 +76,6 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
     offsets[Responsive.xl] = xlOffset;
     offsets[Responsive.xxl] = xxlOffset;
     offsets[Responsive.xxxl] = xxxlOffset;
-    //print("xxxlOffset $xxxlOffset");
-    //print("offset $offsets");
 
     offsetsLand[Responsive.xs] = xsLandOffset ?? xsOffset;
     offsetsLand[Responsive.sm] = smLandOffset ?? smOffset;
@@ -95,16 +93,11 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
     final settings = ResponsiveRowSettings.of(context);
     final flexSettings = FlexWidgetSettings.of(context);
     if (flexSettings?.size != null) {
-      size = flexSettings.size;
-      //print(size);
+      if (flexSettings.size.width < size.width) {
+        size = flexSettings.size;
+      }
     }
     final columnsCount = settings != null ? settings.columnsCount : 12;
-    if (settings == null) {
-      // print("Dont settings founded");
-    } else {
-      //print("settings ${settings?.columnsCount}");
-    }
-    //print("columnsCount = $columnsCount");
 
     final gridSizeValue = Responsive.gridSize(size.width);
     if (columns[gridSizeValue] > columnsCount) {

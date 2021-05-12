@@ -1,4 +1,8 @@
 
+## [0.3.0+6 - Remove logs
+    - fixed
+## [0.3.0+5 - Breakpoints detect in web
+    - fixed
 ## [0.2.8+4 - Fixes
     - fixed
 ## [0.2.8+3 - PersonalizableWidget
