@@ -1,4 +1,8 @@
 
+## [0.3.9+9 - Remove landscape
+    - fixed
+## [0.3.8+8 - Remove landscape
+    - fixed
 ## [0.3.0+6 - Remove logs
     - fixed
 ## [0.3.0+5 - Breakpoints detect in web

@@ -69,7 +69,7 @@ mixin Responsive {
 
   /// Calc the width in pixels, for the screen and rotation config used actually in the device
   double calcWidth(Size size, Orientation orientation, int columnsCount) {
-    final width = orientation == Orientation.portrait || kIsWeb
+    final width = orientation == Orientation.landscape || kIsWeb
         ? size.width
         : size.height;
     final colWidth = width / columnsCount;
@@ -80,7 +80,7 @@ mixin Responsive {
 
   /// Calc the offset in pixels, for the screen and rotation config used actually in the device
   double calcOffset(Size size, Orientation orientation, int columnsCount) {
-    final width = orientation == Orientation.portrait || kIsWeb
+    final width = orientation == Orientation.landscape || kIsWeb
         ? size.width
         : size.height;
 
