@@ -119,7 +119,7 @@ class ResponsiveRow extends StatelessWidget {
   /// [crossAxisAlignment] is either [WrapCrossAlignment.start] or
   /// [WrapCrossAlignment.end], or there's more than one child, then the
   /// [textDirection] (or the ambient [Directionality]) must not be null.
-  final TextDirection textDirection;
+  final TextDirection? textDirection;
 
   /// Determines the order to lay children out vertically and how to interpret
   /// `start` and `end` in the vertical direction.
@@ -152,7 +152,7 @@ class ResponsiveRow extends StatelessWidget {
   /// configurations and maintain the underlying render objects.
   final List<Widget> children;
   ResponsiveRow({
-    this.children,
+    required this.children,
     this.columnsCount = 12,
     this.direction = Axis.horizontal,
     this.alignment = WrapAlignment.start,
@@ -233,7 +233,7 @@ class ResponsiveRowSettings extends InheritedWidget {
   bool updateShouldNotify(ResponsiveRowSettings old) =>
       columnsCount != old.columnsCount;
 
-  static ResponsiveRowSettings of(BuildContext context) {
+  static ResponsiveRowSettings? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<ResponsiveRowSettings>();
   }
 }

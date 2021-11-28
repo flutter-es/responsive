@@ -21,35 +21,35 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
   final FlexBuilder builder;
 
   FlexBuilderWidget({
-    @required this.builder,
+    required this.builder,
     int xs = 12,
     int xsOffset = 0,
-    int xsLand,
-    int xsLandOffset,
+    int? xsLand,
+    int? xsLandOffset,
     int sm = 6,
     int smOffset = 0,
-    int smLand,
-    int smLandOffset,
+    int? smLand,
+    int? smLandOffset,
     int md = 6,
     int mdOffset = 0,
-    int mdLand,
-    int mdLandOffset,
+    int? mdLand,
+    int? mdLandOffset,
     int lg = 3,
     int lgOffset = 0,
-    int lgLand,
-    int lgLandOffset,
+    int? lgLand,
+    int? lgLandOffset,
     int xl = 3,
     int xlOffset = 0,
     int xlLand = 0,
-    int xlLandOffset,
+    int? xlLandOffset,
     int xxl = 3,
     int xxlOffset = 0,
-    int xxlLand,
-    int xxlLandOffset,
+    int? xxlLand,
+    int? xxlLandOffset,
     int xxxl = 3,
     int xxxlOffset = 0,
-    int xxxlLand,
-    int xxxlLandOffset,
+    int? xxxlLand,
+    int? xxxlLandOffset,
   }) {
     columns = FlexColumns(
       xs: xs,
@@ -88,19 +88,19 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size? size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
     final settings = ResponsiveRowSettings.of(context);
     final flexSettings = FlexWidgetSettings.of(context);
     if (flexSettings?.size != null) {
-      if (flexSettings.size.width < size.width) {
+      if (flexSettings!.size!.width < size.width) {
         size = flexSettings.size;
       }
     }
     final columnsCount = settings != null ? settings.columnsCount : 12;
 
-    final gridSizeValue = Responsive.gridSize(size.width);
-    if (columns[gridSizeValue] > columnsCount) {
+    final gridSizeValue = Responsive.gridSize(size!.width);
+    if (columns[gridSizeValue]! > columnsCount) {
       throw Exception(
           "${gridName[gridSizeValue]} is bigger than columnsCount: ${columns[gridSizeValue]}  > $columnsCount");
     }
@@ -123,13 +123,13 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
 }
 
 class FlexWidgetSettings extends InheritedWidget {
-  final Size size;
-  FlexWidgetSettings({this.size, Widget child}) : super(child: child);
+  final Size? size;
+  FlexWidgetSettings({this.size, required Widget child}) : super(child: child);
 
   @override
   bool updateShouldNotify(FlexWidgetSettings old) => size != old.size;
 
-  static FlexWidgetSettings of(BuildContext context) {
+  static FlexWidgetSettings? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<FlexWidgetSettings>();
   }
 }

@@ -12,10 +12,10 @@ class ResponsiveScaffold extends StatelessWidget {
   final AppBar appBar;
 
   const ResponsiveScaffold(
-      {@required this.drawer,
-      @required this.appBar,
-      @required this.body,
-      Key key})
+      {required this.drawer,
+      required this.appBar,
+      required this.body,
+      Key? key})
       : super(key: key);
 
   @override

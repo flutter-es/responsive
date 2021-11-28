@@ -46,7 +46,7 @@ mixin Responsive {
   };
 
   /// Columns counts for each grid type
-  Map<int, int> columns = {
+  Map<int, int?> columns = {
     xs: 12,
     sm: 6,
     md: 6,
@@ -57,7 +57,7 @@ mixin Responsive {
   };
 
   /// Columns counts for each grid type and the device is landscape
-  Map<int, int> columnsLand = {
+  Map<int, int?> columnsLand = {
     xs: 12,
     sm: 6,
     md: 6,
@@ -75,7 +75,7 @@ mixin Responsive {
     final colWidth = width / columnsCount;
     //   print("colWidth $colWidth");
 
-    return colWidth * columns[gridSize(size.width)];
+    return colWidth * columns[gridSize(size.width)]!;
   }
 
   /// Calc the offset in pixels, for the screen and rotation config used actually in the device
@@ -88,22 +88,22 @@ mixin Responsive {
     //print("calcoffset offsets = $offsets, ");
     final orientedOffsets =
         orientation == Orientation.portrait ? offsets : offsetsLand;
-    final result = colWidth * orientedOffsets[gridSize(size.width)];
+    final result = colWidth * orientedOffsets[gridSize(size.width)]!;
     //print("calcoffset result = $result, ");
     return result;
   }
 
   /// Calc the number of columns, for the screen and rotation config used actually in the device
-  static int calcColumns(
-      {Size size,
-      Orientation orientation,
-      FlexColumns columns,
-      BuildContext context}) {
+  static int? calcColumns(
+      {Size? size,
+      Orientation? orientation,
+      required FlexColumns columns,
+      BuildContext? context}) {
     if (context != null) {
       size = MediaQuery.of(context).size;
       orientation = MediaQuery.of(context).orientation;
     }
-    return columns.values[gridSize(size.width)];
+    return columns.values[gridSize(size!.width)];
   }
 
   /// Method to return grid size name
@@ -129,11 +129,11 @@ mixin Responsive {
 
 class FlexColumns {
   /// Columns counts for each grid type and the device is landscape
-  Map<int, int> values = {};
+  Map<int, int?> values = {};
 
   /// Constructor
   FlexColumns(
-      {@required int xs, int sm, int md, int lg, int xl, int xxl, int xxxl}) {
+      {required int xs, int? sm, int? md, int? lg, int? xl, int? xxl, int? xxxl}) {
     values[Responsive.xs] = xs;
     values[Responsive.sm] = sm ?? values[Responsive.xs];
     values[Responsive.md] = md ?? values[Responsive.sm];
