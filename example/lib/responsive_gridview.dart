@@ -30,7 +30,7 @@ class ResponsiveGridview extends StatelessWidget {
               lg: 6,
               xxl: 8,
             ),
-          ),
+          )!,
         ),
       ),
     );
