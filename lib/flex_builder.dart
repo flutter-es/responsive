@@ -40,7 +40,7 @@ class FlexBuilderWidget extends StatelessWidget with Responsive {
     int? lgLandOffset,
     int xl = 3,
     int xlOffset = 0,
-    int xlLand = 0,
+    int? xlLand,
     int? xlLandOffset,
     int xxl = 3,
     int xxlOffset = 0,

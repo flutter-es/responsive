@@ -29,9 +29,9 @@ class FlexPersonalizableWidget extends StatelessWidget with Responsive {
     int lgOffset = 0,
     int? lgLand,
     int? lgLandOffset,
-    int xl = 3,
+    int? xl = 3,
     int xlOffset = 0,
-    int xlLand = 0,
+    int? xlLand,
     int? xlLandOffset,
     int xxl = 3,
     int xxlOffset = 0,
@@ -56,7 +56,7 @@ class FlexPersonalizableWidget extends StatelessWidget with Responsive {
             sm: smLand ?? sm,
             md: mdLand ?? md,
             lg: lgLand ?? lg,
-            xl: xlLand ?? xl,
+            xl: (xlLand ?? xl),
             xxl: xxlLand ?? xxl,
             xxxl: xxxlLand ?? xxxl)
         .values;
