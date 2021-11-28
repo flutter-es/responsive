@@ -1,6 +1,6 @@
 name: responsive
 description: Provide a easy way to make responsive UI for Flutter Applications in mobile, desktop and web, allow different widget  size for each screen size and device orientation.
-version: 0.3.10+10
+version: 0.3.11+11
  
 homepage: https://github.com/flutter-es/responsive
 
