@@ -35,7 +35,6 @@ class ResponsiveScaffold extends StatelessWidget {
           case ScreenSize.xxxl:
             return getBigWidget(context);
         }
-        return Text("Hi Developer!");
       },
     );
   }

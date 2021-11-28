@@ -163,8 +163,7 @@ class ResponsiveRow extends StatelessWidget {
     this.textDirection,
     this.verticalDirection = VerticalDirection.down,
     this.forceOnlyRow = false,
-  })  : assert(children != null),
-        assert(columnsCount > 0);
+  }) : assert(columnsCount > 0);
 
   @override
   Widget build(BuildContext context) {

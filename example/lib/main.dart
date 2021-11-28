@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart' show debugDefaultTargetPlatformOverride;
+import 'package:flutter/foundation.dart'
+    show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
 
 import 'flexibe_row_demo.dart';
@@ -41,22 +42,19 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            RaisedButton(
-              color: Colors.orangeAccent,
+            ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/flexiwidget');
               },
               child: Text('Flexi Widget Demo'),
             ),
-            RaisedButton(
-              color: Colors.blueAccent,
+            ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/gallery');
               },
               child: Text('Image Galery Demo'),
             ),
-            RaisedButton(
-              color: Colors.redAccent,
+            ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/gridview');
               },
